@@ -31,7 +31,6 @@ import java.util.List;
 public class AllCommentsActivity extends Activity implements View.OnClickListener {
     Activity activity;
     private static String url_all_comments = "http://192.168.56.1:8080/get/all";
-    private static final String TAG_SUCCESS = "success";
     public static final String TAG_COMMENTS = "comments";
     private static final String TAG_DEVICEID = "deviceID";
     private static final String TAG_COMMENT = "comment";
@@ -64,7 +63,7 @@ public class AllCommentsActivity extends Activity implements View.OnClickListene
             pDialog = new ProgressDialog(AllCommentsActivity.this);
             pDialog.setMessage("Loading. Please wait...");
             pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
+            pDialog.setCancelable(true);
             pDialog.show();
         }
 
@@ -117,10 +116,14 @@ public class AllCommentsActivity extends Activity implements View.OnClickListene
                     lv.setAdapter(new MyAdapter(activity, comments));
                 }
             });
-
         }
 
-
+        @Override
+        protected void onCancelled(String s) {
+            super.onCancelled(s);
+            Intent intent = new Intent(activity, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void onClick(View view) {

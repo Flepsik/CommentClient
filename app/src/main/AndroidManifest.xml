@@ -18,6 +18,9 @@
         <activity android:name=".Activity.AddCommentActivity"/>
         <activity android:name=".Activity.AllCommentsActivity"/>
         <activity android:name=".Activity.MyCommentsActivity"/>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="f754bfb069d8d474ef61a2dcf6cc2486581b13c3" />
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 

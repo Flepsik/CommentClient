@@ -9,10 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.fleps.commentclient.Activity.AddCommentActivity;
 import com.example.fleps.commentclient.Activity.AllCommentsActivity;
 import com.example.fleps.commentclient.Activity.MyCommentsActivity;
 import com.example.fleps.commentclient.R;
+import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -22,6 +24,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
 
         addCommentBTN = (Button) findViewById(R.id.addCommentBTN);

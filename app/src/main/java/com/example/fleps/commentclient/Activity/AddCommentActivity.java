@@ -58,15 +58,9 @@ public class AddCommentActivity extends Activity implements View.OnClickListener
                 String name = String.valueOf(editName.getText());
                 String surname = String.valueOf(editSurname.getText());
                 String comment = String.valueOf(editComment.getText());
-                new RequestTask().execute(name, surname, Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID), comment);
-                /*if (checkName(name) && checkSurname(surname) && checkComment(comment)) {
-                    Comments.addComment(new Comment(
-                            name
-                            , surname
-                            , Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID)
-                            , comment));
-                */
-
+                if (checkName(name) && checkSurname(surname) && checkComment(comment)) {
+                    new RequestTask().execute(name, surname, Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID), comment);
+                }
                 break;
         }
     }

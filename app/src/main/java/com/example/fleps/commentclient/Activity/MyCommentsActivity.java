@@ -62,7 +62,7 @@ public class MyCommentsActivity extends Activity implements View.OnClickListener
             pDialog = new ProgressDialog(MyCommentsActivity.this);
             pDialog.setMessage("Loading. Please wait...");
             pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
+            pDialog.setCancelable(true);
             pDialog.show();
         }
 
@@ -98,6 +98,12 @@ public class MyCommentsActivity extends Activity implements View.OnClickListener
             return null;
         }
 
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+            Intent intent = new Intent(activity, MainActivity.class);
+            startActivity(intent);
+        }
 
         protected void onPostExecute(String file_url) {
             pDialog.dismiss();
