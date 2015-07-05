@@ -27,7 +27,7 @@
                 android:id="@+id/nameTW" />
     
             <EditText
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editName"
                 android:layout_weight="1"
@@ -50,7 +50,7 @@
                 android:id="@+id/surnameTW" />
     
             <EditText
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editSurname"
                 android:layout_weight="1"
