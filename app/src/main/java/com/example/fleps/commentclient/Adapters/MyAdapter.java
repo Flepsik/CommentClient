@@ -56,6 +56,7 @@ public class MyAdapter extends ArrayAdapter<Comment> {
         holder.surnameTW.setText(comments.get(i).getSurname());
         holder.commentTW.setText(comments.get(i).getComment());
         String id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        //выделяем свои комментарии светло-синим, а чужие - темным
         if (id.equals(comments.get(i).getDeviceID())) rowView.setBackgroundColor(Color.parseColor("#ddf5fc"));
         else rowView.setBackgroundColor(Color.parseColor("#32A1CC"));
         return rowView;

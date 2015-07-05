@@ -58,6 +58,9 @@ public class AddCommentActivity extends Activity implements View.OnClickListener
                 String name = String.valueOf(editName.getText());
                 String surname = String.valueOf(editSurname.getText());
                 String comment = String.valueOf(editComment.getText());
+                //если все ок - отправляем на сервер в бекграунде.
+                //в случае ошибки - выдается Toast и возврат на главный экран
+                //если успех - на экран всех сообщений.
                 if (checkName(name) && checkSurname(surname) && checkComment(comment)) {
                     new RequestTask().execute(name, surname, Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID), comment);
                 }

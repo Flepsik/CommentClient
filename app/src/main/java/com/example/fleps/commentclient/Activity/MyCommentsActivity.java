@@ -51,6 +51,9 @@ public class MyCommentsActivity extends Activity implements View.OnClickListener
         lv = (ListView) findViewById(R.id.listView);
         activity = this;
         myComments = new ArrayList<>();
+
+        //выполняем загрузку в бекграунде.
+        // Если какие-то проблемы - выдаем toast с сообщением и возвращаемся на главный экран
         new LoadAllComments().execute(Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID));
 
     }

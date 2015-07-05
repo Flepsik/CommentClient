@@ -86,6 +86,9 @@ public class JSONParser {
 
         } catch (JSONException e) {
             try {
+                //небольшой мой костылек
+                //jackson автоматически делает не объекты, а массивы.
+                //Поэтому необхоодимо чуток допарсить и превратить массив в объект
                 jObj2 = new JSONArray(json);
                 jObj = new JSONObject();
                 jObj.put(AllCommentsActivity.TAG_COMMENTS, jObj2);

@@ -49,6 +49,9 @@ public class AllCommentsActivity extends Activity implements View.OnClickListene
         lv = (ListView) findViewById(R.id.listView);
         activity = this;
         comments = new ArrayList<>();
+
+        //выполняем загрузку в бекграунде.
+        // Если какие-то проблемы - выдаем toast с сообщением и возвращаемся на главный экран
         new LoadAllComments().execute();
     }
 
