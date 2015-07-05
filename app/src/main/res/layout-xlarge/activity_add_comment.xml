@@ -7,29 +7,46 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp">
+        android:layout_marginLeft="200dp"
+        android:layout_marginRight="200dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-
+    
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/name"
                 android:id="@+id/nameTW" />
-
+    
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/editName"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/surname"
+                android:id="@+id/surnameTW"
+                android:layout_marginLeft="10dp" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editSurname"
                 android:layout_weight="1"
                 android:layout_marginLeft="5dp"
                 android:inputType="text" />
@@ -42,20 +59,6 @@
             android:gravity="center"
             android:layout_gravity="center_horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/surname"
-                android:id="@+id/surnameTW" />
-
-            <EditText
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editSurname"
-                android:layout_weight="1"
-                android:layout_marginLeft="5dp"
-                android:inputType="text" />
         </LinearLayout>
 
         <TextView

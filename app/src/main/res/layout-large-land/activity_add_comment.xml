@@ -10,22 +10,22 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="center"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp">
+        android:layout_marginLeft="200dp"
+        android:layout_marginRight="200dp">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-
+    
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/name"
                 android:id="@+id/nameTW" />
-
+    
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -41,14 +41,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_gravity="center_horizontal">
-
+    
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/surname"
                 android:id="@+id/surnameTW" />
-
+    
             <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
