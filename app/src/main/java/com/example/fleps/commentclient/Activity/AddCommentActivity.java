@@ -34,11 +34,13 @@ public class AddCommentActivity extends Activity implements View.OnClickListener
     EditText editName, editSurname, editComment;
     TextView nameTW, surnameTW, commentTW;
     private ProgressDialog dialog;
+    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_comment);
+        activity = this;
         sendButton = (Button) findViewById(R.id.sendBTN);
         sendButton.setOnClickListener(this);
         editName = (EditText) findViewById(R.id.editName);
@@ -64,9 +66,7 @@ public class AddCommentActivity extends Activity implements View.OnClickListener
                             , Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID)
                             , comment));
                 */
-                Intent intent = new Intent(this, AllCommentsActivity.class);
-                Toast.makeText(this, "Success!", Toast.LENGTH_SHORT).show();
-                startActivity(intent);
+
                 break;
         }
     }
@@ -123,9 +123,15 @@ public class AddCommentActivity extends Activity implements View.OnClickListener
                 postMethod.setHeader("Content-type", "application/json");
                 ResponseHandler responseHandler = new BasicResponseHandler();
                 httpclient.execute(postMethod, responseHandler);
-
             } catch (Exception e) {
                 System.out.println("Exp=" + e);
+                activity.runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(activity, "Something went wrong, check internet connection", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(activity, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
             }
             return null;
         }
@@ -134,6 +140,8 @@ public class AddCommentActivity extends Activity implements View.OnClickListener
         protected void onPostExecute(String result) {
             dialog.dismiss();
             super.onPostExecute(result);
+            Intent intent = new Intent(activity, AllCommentsActivity.class);
+            startActivity(intent);
         }
 
         @Override

@@ -2,6 +2,7 @@ package com.example.fleps.commentclient.Activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -69,10 +70,16 @@ public class MyCommentsActivity extends Activity implements View.OnClickListener
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("id", args[0]));
             JSONObject json = jParser.makeHttpRequest(url_all_comments, "GET", params);
-            Log.d("All Comments: ", json.toString());
             if(json == null) {
-                Toast.makeText(getApplicationContext(), "Something went wrong, check internet connection", Toast.LENGTH_SHORT).show();
+                activity.runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(activity.getApplicationContext(), "Something went wrong, check internet connection", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(activity, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
             } else {
+                Log.d("My Comments: ", json.toString());
                 try {
                     jComments = json.getJSONArray(TAG_COMMENTS);
                     for (int i = 0; i < jComments.length(); i++) {

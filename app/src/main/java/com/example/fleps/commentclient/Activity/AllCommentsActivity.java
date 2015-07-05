@@ -3,6 +3,7 @@ package com.example.fleps.commentclient.Activity;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,8 +77,15 @@ public class AllCommentsActivity extends Activity implements View.OnClickListene
             // получаем JSON строк с URL
             JSONObject json = jParser.makeHttpRequest(url_all_comments, "GET", params);
             if(json == null) {
-                Toast.makeText(activity.getApplicationContext(), "Something went wrong, check internet connection", Toast.LENGTH_LONG).show();
+                activity.runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(activity.getApplicationContext(), "Something went wrong, check internet connection", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(activity, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
             } else {
+                Log.d("All Comments: ", json.toString());
                 try {
                     jComments = json.getJSONArray(TAG_COMMENTS);
                     for (int i = 0; i < jComments.length(); i++) {
