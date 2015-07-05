@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CommentClient</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="allComments">All Comments</string>
+    <string name="myComments">My comments</string>
+    <string name="addComment">Add Comment</string>
+    <string name="name">Name: </string>
+    <string name="surname">Surname: </string>
+    <string name="comment">Comment:</string>
+    <string name="send">Send</string>
+    <string name="nameTW">Name</string>
+    <string name="surnameTW">Surname</string>
+    <string name="commentTW">Comment</string>
+</resources>
