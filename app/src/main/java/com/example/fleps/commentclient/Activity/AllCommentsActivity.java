@@ -30,7 +30,7 @@ import java.util.List;
  */
 public class AllCommentsActivity extends Activity implements View.OnClickListener {
     Activity activity;
-    private static String url_all_comments = "http://192.168.56.1:8080/get/all";
+    private static String url_all_comments = "https://serverspring.herokuapp.com/get/all";
     public static final String TAG_COMMENTS = "comments";
     private static final String TAG_DEVICEID = "deviceID";
     private static final String TAG_COMMENT = "comment";

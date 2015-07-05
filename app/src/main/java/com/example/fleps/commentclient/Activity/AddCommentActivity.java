@@ -29,7 +29,7 @@ import org.w3c.dom.Text;
  * Created by Fleps_000 on 04.07.2015.
  */
 public class AddCommentActivity extends Activity implements View.OnClickListener {
-    private static String url_add_comment = "http://192.168.56.1:8080/add";
+    private static String url_add_comment = "https://serverspring.herokuapp.com/add";
     Button sendButton;
     EditText editName, editSurname, editComment;
     TextView nameTW, surnameTW, commentTW;
